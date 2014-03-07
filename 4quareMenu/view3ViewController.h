@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface view3ViewController : UIViewController
+@interface view3ViewController : UICollectionViewController
+
+
+-(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p;
+
+
 
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A0820D6-1544-4D99-97E3-84009CF6B8D3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bedazzle</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FDB31DF1-1A3D-4315-B0CC-B8DC74EFE21C</key>
+		<string>https://github.com/rlove1221/Bedazzle.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bedazzle.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FDB31DF1-1A3D-4315-B0CC-B8DC74EFE21C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rlove1221/Bedazzle.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FDB31DF1-1A3D-4315-B0CC-B8DC74EFE21C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FDB31DF1-1A3D-4315-B0CC-B8DC74EFE21C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bedazzle</string>
+		</dict>
+	</array>
+</dict>
+</plist>

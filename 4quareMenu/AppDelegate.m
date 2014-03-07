@@ -14,6 +14,15 @@
 #import "view4ViewController.h"
 #import "view5ViewController.h"
 #import "Quare4MenuViewController.h"
+#import "APLTransitionController.h"
+#import "APLCollectionViewController.h" 
+
+@interface AppDelegate () <UINavigationControllerDelegate, APLTransitionControllerDelegate>
+
+@property (nonatomic) UINavigationController *navigationController;
+@property (nonatomic) APLTransitionController *transitionController;
+
+@end
 
 @implementation AppDelegate
 
@@ -36,6 +45,24 @@
 //    [self.window addSubview:q4mc.view];
     [self.window makeKeyAndVisible];
     return YES;
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(100, 100);
+    layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 10;
+    view3ViewController* collectionViewController = [[view3ViewController alloc] initWithCollectionViewLayout:layout];
+    collectionViewController.title = @"Layout 1";
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.delegate = self;
+    
+    self.transitionController = [[APLTransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
+    self.transitionController.delegate = self;
+    
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

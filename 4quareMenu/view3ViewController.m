@@ -7,32 +7,35 @@
 //
 
 #import "view3ViewController.h"
+#import "APLCollectionViewController.h"
 
 @interface view3ViewController ()
 
+
 @end
+#define MAX_COUNT 60
+#define CELL_ID @"CELL_ID"
 
 @implementation view3ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    UIViewController *vc = [self nextViewControllerAtPoint:CGPointZero];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)viewDidLoad
+
+-(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // We could have multiple section stacks and find the right one,
+    UICollectionViewFlowLayout* grid = [[UICollectionViewFlowLayout alloc] init];
+    grid.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    grid.itemSize = CGSizeMake(600, 600);
+    APLCollectionViewController* nextCollectionViewController = [[APLCollectionViewController alloc] initWithCollectionViewLayout:grid];
+    nextCollectionViewController.useLayoutToLayoutNavigationTransitions = YES;
+    nextCollectionViewController.title = @"Layout 2";
+    return nextCollectionViewController;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

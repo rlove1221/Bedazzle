@@ -46,6 +46,8 @@
 		8594054C18C88CF3004681B2 /* bedazzleStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8594054B18C88CF3004681B2 /* bedazzleStar.png */; };
 		A3334F9218C42DEC00B72862 /* view5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334F9018C42DEC00B72862 /* view5ViewController.m */; };
 		A3334F9318C42DEC00B72862 /* view5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3334F9118C42DEC00B72862 /* view5ViewController.xib */; };
+		A3BA604A18C928910023587E /* APLTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BA604918C928910023587E /* APLTransitionController.m */; };
+		A3BA604D18C9289B0023587E /* APLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BA604C18C9289B0023587E /* APLCollectionViewController.m */; };
 		A3FB571218C8C2A300634794 /* eventsBckgrd.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB571118C8C2A300634794 /* eventsBckgrd.png */; };
 		A3FB571C18C8C3AD00634794 /* UzysSMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB571618C8C3AD00634794 /* UzysSMMenuItem.m */; };
 		A3FB571D18C8C3AD00634794 /* UzysSMMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB571818C8C3AD00634794 /* UzysSMMenuItemView.m */; };
@@ -118,6 +120,12 @@
 		A3334F8F18C42DEC00B72862 /* view5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = view5ViewController.h; path = ../view5ViewController.h; sourceTree = "<group>"; };
 		A3334F9018C42DEC00B72862 /* view5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = view5ViewController.m; path = ../view5ViewController.m; sourceTree = "<group>"; };
 		A3334F9118C42DEC00B72862 /* view5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = view5ViewController.xib; path = ../view5ViewController.xib; sourceTree = "<group>"; };
+		A3BA604518C927B20023587E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest.framework; sourceTree = "<group>"; };
+		A3BA604818C928910023587E /* APLTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLTransitionController.h; sourceTree = "<group>"; };
+		A3BA604918C928910023587E /* APLTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLTransitionController.m; sourceTree = "<group>"; };
+		A3BA604B18C9289B0023587E /* APLCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCollectionViewController.h; sourceTree = "<group>"; };
+		A3BA604C18C9289B0023587E /* APLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollectionViewController.m; sourceTree = "<group>"; };
+		A3BA604E18C94AAB0023587E /* CollectionViewTransition-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CollectionViewTransition-Prefix.pch"; path = "../CollectionViewTransition-Prefix.pch"; sourceTree = "<group>"; };
 		A3FB571118C8C2A300634794 /* eventsBckgrd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsBckgrd.png; sourceTree = "<group>"; };
 		A3FB571418C8C3AD00634794 /* ARCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCHelper.h; sourceTree = "<group>"; };
 		A3FB571518C8C3AD00634794 /* UzysSMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UzysSMMenuItem.h; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		443C81F116F6A56800DE5D85 = {
 			isa = PBXGroup;
 			children = (
+				A3BA604718C928380023587E /* CollectionViewTransition */,
 				A3FB571318C8C36900634794 /* view1SlideMenu */,
 				443C824916F6A6E800DE5D85 /* bedazzleMenuViewController */,
 				443C820316F6A56800DE5D85 /* bedazzleMenu */,
@@ -181,6 +190,7 @@
 		443C81FC16F6A56800DE5D85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3BA604518C927B20023587E /* XCTest.framework */,
 				4461C2DF16F8436700196347 /* QuartzCore.framework */,
 				443C81FD16F6A56800DE5D85 /* UIKit.framework */,
 				443C81FF16F6A56800DE5D85 /* Foundation.framework */,
@@ -242,6 +252,7 @@
 				443C820F16F6A56800DE5D85 /* Default.png */,
 				443C821116F6A56800DE5D85 /* Default@2x.png */,
 				443C821316F6A56800DE5D85 /* Default-568h@2x.png */,
+				A3BA604E18C94AAB0023587E /* CollectionViewTransition-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,6 +286,17 @@
 				440D3C0216FAF7AC00535AC4 /* MaskView.m */,
 			);
 			name = bedazzleMenuViewController;
+			sourceTree = "<group>";
+		};
+		A3BA604718C928380023587E /* CollectionViewTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A3BA604B18C9289B0023587E /* APLCollectionViewController.h */,
+				A3BA604C18C9289B0023587E /* APLCollectionViewController.m */,
+				A3BA604818C928910023587E /* APLTransitionController.h */,
+				A3BA604918C928910023587E /* APLTransitionController.m */,
+			);
+			name = CollectionViewTransition;
 			sourceTree = "<group>";
 		};
 		A3FB571318C8C36900634794 /* view1SlideMenu */ = {
@@ -430,11 +452,13 @@
 			files = (
 				A3FB571C18C8C3AD00634794 /* UzysSMMenuItem.m in Sources */,
 				443C820A16F6A56800DE5D85 /* main.m in Sources */,
+				A3BA604A18C928910023587E /* APLTransitionController.m in Sources */,
 				A3FB571D18C8C3AD00634794 /* UzysSMMenuItemView.m in Sources */,
 				443C820E16F6A56800DE5D85 /* AppDelegate.m in Sources */,
 				443C823516F6A62E00DE5D85 /* view1ViewController.m in Sources */,
 				A3334F9218C42DEC00B72862 /* view5ViewController.m in Sources */,
 				443C823A16F6A66000DE5D85 /* view2ViewController.m in Sources */,
+				A3BA604D18C9289B0023587E /* APLCollectionViewController.m in Sources */,
 				A3FB571F18C8C3AD00634794 /* UzysSlideMenu.m in Sources */,
 				443C823F16F6A67F00DE5D85 /* view3ViewController.m in Sources */,
 				443C824416F6A69900DE5D85 /* view4ViewController.m in Sources */,
@@ -542,6 +566,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: daozhao chen (7GY3KN87V5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: daozhao chen (7GY3KN87V5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RichardMorena/Downloads/Bedazzle,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "4quareMenu/Bedazzle-Prefix.pch";
 				INFOPLIST_FILE = "4quareMenu/Bedazzle-Info.plist";
@@ -558,6 +586,14 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: daozhao chen (7GY3KN87V5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: daozhao chen (7GY3KN87V5)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/RichardMorena/Downloads/Bedazzle,
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Users/RichardMorena/Downloads/Bedazzle,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "4quareMenu/Bedazzle-Prefix.pch";
 				INFOPLIST_FILE = "4quareMenu/Bedazzle-Info.plist";
