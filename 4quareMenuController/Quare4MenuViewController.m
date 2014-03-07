@@ -174,29 +174,29 @@ enum {
     NSInteger size = 4; //was4
     
 //    self.layerView = [[UIView alloc] initWithFrame:CGRectMake(-width*(size/2), -height*(size/2), size * width, size*height)];
-    self.layerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  width, height)];
+    self.layerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,  width*6, height*3)];
     self.layerView.backgroundColor = [UIColor blackColor];
-    self.layerView.clipsToBounds = NO;
+    self.layerView.clipsToBounds = YES;
     
-    self.topLeftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width /3 , height /3)];
+    self.topLeftView = [[UIView alloc]initWithFrame:CGRectMake((width*3-width/2)-(width*2 /3), height - height*2/3, width , height)];
     self.topLeftView.clipsToBounds = YES;
     self.maskViewTopLeft = [[MaskView alloc]initWithFrame:self.topLeftView.frame];
 
-    self.topCenterView = [[UIView alloc]initWithFrame:CGRectMake(width/3 ,0,width/3, height/3)];
+    self.topCenterView = [[UIView alloc]initWithFrame:CGRectMake((width*3-width/2)+width/3 ,height - height*2/3,width, height)];
     self.topCenterView.clipsToBounds = YES;
     self.maskViewTopCenter = [[MaskView alloc]initWithFrame:self.topCenterView.frame];
-    
-    self.topRightView = [[UIView alloc]initWithFrame:CGRectMake(width/3*2, 0, width / 3, height/3)];
+
+    self.topRightView = [[UIView alloc]initWithFrame:CGRectMake((width*3-width/2)+width/3*2, height - height*2/3, width, height)];
     self.topRightView.clipsToBounds = YES;
     self.maskViewTopRight = [[MaskView alloc]initWithFrame:self.topRightView.frame];
 
     
 
-    self.bottomLeftView = [[UIView alloc]initWithFrame:CGRectMake(0, height/3 , width/2, height/3*2 )];
+    self.bottomLeftView = [[UIView alloc]initWithFrame:CGRectMake((width*3-width/2) - width/2, height + height/3 , width, height )];
     self.bottomLeftView.clipsToBounds = YES;
     self.maskViewbottomLeft = [[MaskView alloc]initWithFrame:self.bottomLeftView.frame];
     
-    self.bottomRightView = [[UIView alloc]initWithFrame:CGRectMake(width/2, height/3, width/2, height/3*2)];
+    self.bottomRightView = [[UIView alloc]initWithFrame:CGRectMake((width*3-width/2) + width/2, height + height/3, width, height)];
     self.bottomRightView.clipsToBounds = YES;
     self.maskViewbottomRight = [[MaskView alloc]initWithFrame:self.bottomRightView.frame];
 
@@ -235,7 +235,7 @@ enum {
     self.bottomLeftBtn.frame = CGRectOffset(self.bottomLeftBtn.frame
                                             ,CGRectGetMaxX(self.bottomLeftView.frame) - CGRectGetWidth(self.bottomLeftBtn.frame)
                                             ,CGRectGetMinY(self.bottomLeftView.frame) );
-    
+//
     self.bottomRightBtn = [self createButtonWithImageNameForNormal:BUTTON_IMAGE_OF_BOTTOMRIGHT
                                           imageNameForHightlighted:BUTTON_IMAGE_OF_BOTTOMRIGHT_H
                                                  transformRotation:0
@@ -251,11 +251,11 @@ enum {
     self.centerImageView.center = self.bottomRightBtn.frame.origin;
    
     [self.layerView addSubview:self.topLeftView];
-    
+    [self.layerView addSubview:self.topCenterView];
     [self.layerView addSubview:self.topRightView];
     [self.layerView addSubview:self.bottomLeftView];
     [self.layerView addSubview:self.bottomRightView];
-    [self.layerView addSubview:self.topCenterView];
+    
     
     
     [self.view addSubview:self.layerView];
@@ -280,6 +280,7 @@ enum {
     return btn;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -290,26 +291,26 @@ enum {
     
     [self.topLeftView addSubview:self.topLeftController.view];
 //    self.topLeftController.view.userInteractionEnabled = NO;
-    self.topLeftRect = CGRectMake(0, 0, width, height);
+    self.topLeftRect = CGRectMake((width*2 /3), height*2/3, width, height);
     self.topLeftController.view.frame = self.topLeftRect;
     //self.topLeftController.view.layer.anchorPoint = CGPointMake(0.5f + (CENTERPOINT_OFFSET_X /width) , 0.5f + (CENTERPOINT_OFFSET_Y/height));
     
     [self.topCenterView addSubview:self.topCenterController.view];
     //    self.topRightController.view.userInteractionEnabled = NO;
-    self.topCenterRect = CGRectMake(- width/3, 0, width, height);
+    self.topCenterRect = CGRectMake(- width/3, height*2/3, width, height);
     self.topCenterController.view.frame = self.topCenterRect;
     //self.topCenterController.view.layer.anchorPoint = CGPointMake(0.5f + (CENTERPOINT_OFFSET_X /width) , 0.5f + (CENTERPOINT_OFFSET_Y/height));
 
     [self.topRightView addSubview:self.topRightController.view];
 //    self.topRightController.view.userInteractionEnabled = NO;
-    self.topRightRect = CGRectMake(- (width/3)*2, 0, width, height);
+    self.topRightRect = CGRectMake(- (width/3)*2, height*2/3, width, height);
     self.topRightController.view.frame = self.topRightRect;
     //self.topRightController.view.layer.anchorPoint = CGPointMake(0.5f + (CENTERPOINT_OFFSET_X /width) , 0.5f + (CENTERPOINT_OFFSET_Y/height));
 
 
     [self.bottomLeftView addSubview:self.bottomLeftController.view];
 //    self.bottomLeftController.view.userInteractionEnabled = NO;
-    self.bottomLeftRect = CGRectMake(0, -height/3, width, height);
+    self.bottomLeftRect = CGRectMake(width/2, -height/3, width, height);
     self.bottomLeftController.view.frame = self.bottomLeftRect;
     //self.bottomLeftController.view.layer.anchorPoint = CGPointMake(0.5f + (CENTERPOINT_OFFSET_X /width) , 0.5f + (CENTERPOINT_OFFSET_Y/height));
     
@@ -320,10 +321,11 @@ enum {
     //self.bottomRightController.view.layer.anchorPoint = CGPointMake(0.5f + (CENTERPOINT_OFFSET_X /width) , 0.5f + (CENTERPOINT_OFFSET_Y/height));
 
     [self.layerView addSubview:self.maskViewTopLeft];
+    [self.layerView addSubview:self.maskViewTopCenter];
     [self.layerView addSubview:self.maskViewTopRight];
     [self.layerView addSubview:self.maskViewbottomLeft];
     [self.layerView addSubview:self.maskViewbottomRight];
-    [self.layerView addSubview:self.maskViewTopCenter];
+    
     
     
     UITapGestureRecognizer *tapRecognizer;
@@ -435,23 +437,21 @@ enum {
         rect.size.height = height+10;
         rect.size.width = width;
         
-        self.topLeftView.frame =  rect;
+        //self.topLeftView.frame =  rect;
         //[self.topLeftView removeGestureRecognizer:[self.topLeftView.gestureRecognizers objectAtIndex:0]];
-        [self.maskViewTopLeft removeGestureRecognizer:[self.maskViewTopLeft.gestureRecognizers objectAtIndex:0]];
     }
     else
     if ( self.currentController == self.topRightController)
     {
         CGRect rect = self.topRightView.frame;
-        
-        rect.origin.y = -width+rect.size.height;
-        rect.size.height = width+5;
+        [self.maskViewTopCenter removeFromSuperview];
+        //rect.origin.y = -width+rect.size.height;
+        //rect.size.height = width+5;
         rect.size.width = height;
         
         self.topRightView.frame = rect;
                 //self.bottomLeftView.frame =  CGRectMake(-width, height/3, height, width);
         //[self.topRightView removeGestureRecognizer:[self.topRightView.gestureRecognizers objectAtIndex:0]];
-        [self.maskViewTopRight removeGestureRecognizer:[self.maskViewTopRight.gestureRecognizers objectAtIndex:0]];
         
     }
     else
@@ -470,29 +470,29 @@ enum {
             CGRect rect = self.topCenterView.frame;
             ////
             
-            rect.origin.y = - width + rect.size.height;
-            rect.size.height = width+33;
+            //rect.origin.y = rect.origin.y-50;
+           //rect.size.height = width;
             rect.size.width = height;
             
             ////
             self.topCenterView.frame = rect;
-            //[self.topCenterView removeGestureRecognizer:[self.topCenterView.gestureRecognizers objectAtIndex:0]];
-            [self.maskViewTopCenter removeGestureRecognizer:[self.maskViewTopCenter.gestureRecognizers objectAtIndex:0]];
             
+            //[self.topCenterView removeGestureRecognizer:[self.topCenterView.gestureRecognizers objectAtIndex:0]];
+            [self.layerView bringSubviewToFront:self.topCenterView];
+            [self.layerView bringSubviewToFront:self.centerImageView];
+            [self.layerView bringSubviewToFront:self.topCenterBtn];
         }
     else
     if ( self.currentController == self.bottomLeftController)
     {
         CGRect rect = self.bottomLeftView.frame;
-        rect.size.height = width+90;
-        rect.origin.x = -height+rect.size.width;
+        //rect.size.height = width+90;
+        rect.origin.x = rect.origin.x - (height-width);
         rect.size.width = height;
         
         self.bottomLeftView.frame =  rect;
         
         //self.bottomLeftView.frame =  rect;
-        //[self.bottomLeftView removeGestureRecognizer:[self.bottomLeftView.gestureRecognizers objectAtIndex:0]];
-        [self.maskViewbottomLeft removeGestureRecognizer:[self.maskViewbottomLeft.gestureRecognizers objectAtIndex:0]];
         
     }
     else
@@ -501,11 +501,9 @@ enum {
         rect.size.height = height;
         //rect.origin.x = -height+rect.size.width;
         rect.size.width = width;
-        self.bottomRightView.frame = rect;
+        //self.bottomRightView.frame = rect;
         //self.layerView.frame = CGRectMake(0, 0,  width+(width/2), height+(height/3));
         //self.bottomRightView.frame =  CGRectMake(0, (height/2-height/3), width, height+(height/3));
-        //[self.bottomRightView removeGestureRecognizer:[self.bottomRightView.gestureRecognizers objectAtIndex:0]];
-        [self.maskViewbottomRight removeGestureRecognizer:[self.maskViewbottomRight.gestureRecognizers objectAtIndex:0]];
     }
     
     [UIView animateWithDuration:0.3f
@@ -548,16 +546,33 @@ enum {
                          }
                          else if ( self.currentController == self.topCenterController)
                          {
-                             self.layerView.center = CGPointMake(-(height/2-height/3),width/6);
-                             //moveX = moveX + self.layerView.center.x;
-                             //moveY = moveY - self.layerView.center.y;
+                             self.layerView.center= CGPointMake(-(height/2-height/3),width/6);
+                             moveX = moveX - self.layerView.center.x;
+                             moveY = moveY - self.layerView.center.y;
+                             
+                             
+                             //rect.origin.y = height/3-13;
+                             //self.topCenterController.view.frame = rect;
                              self.topCenterController.view.center = CGPointMake(self.topCenterController.view.center.x + moveX,self.topCenterController.view.center.y - moveY);
+                             CGRect rect =  self.topCenterController.view.frame;
+                             rect.origin.x = 0;
+                             rect.origin.y = rect.origin.y- (moveX-moveY);
+                             self.topCenterController.view.frame = rect;
                          }
                          
                      }
                      completion:^(BOOL finished) {
-                         
-                        
+//                         CGRect rect =  self.layerView.frame;
+//                         rect.size.width = rect.size.width+abs(rect.origin.x);
+//                         rect.origin.x = rect.origin.x - abs(rect.origin.x);
+//                         self.layerView.frame =rect;
+//                         
+//                         
+//                         rect =self.topLeftView.frame;
+//                         //rect.origin.x = 0;
+//                         self.topLeftView.frame =  rect;
+                         //[self.layerView bringSubviewToFront:self.topLeftView];
+                         //[self.layerView bringSubviewToFront:self.topLeftView];
 //                         self.bottomLeftView;
                          NSLog(@"test");
                      }];
@@ -599,20 +614,20 @@ enum {
                          
                          if ( self.currentController == self.topLeftController)
                          {
-                             self.topLeftView.frame = CGRectMake(0, 0, width /3 , height /3);
+                             //self.topLeftView.frame = CGRectMake(0, 0, width /3 , height /3);
                          }
                          
                          else if ( self.currentController == self.topRightController)
                          {
-                             self.topRightView.frame = CGRectMake(width/3*2, 0, width / 3, height/3);
+                             //self.topRightView.frame = CGRectMake(width/3*2, 0, width / 3, height/3);
                          }
                          else if ( self.currentController == self.bottomLeftController)
                          {
-                             self.bottomLeftView.frame = CGRectMake(0, height/3 , width/2, height/3*2 );
+                             self.bottomLeftView.frame = CGRectMake((width*3-width/2) - width/2, height + height/3 , width, height );
                          }
                          else if ( self.currentController == self.topCenterController )
                          {
-                             self.topCenterView.frame = CGRectMake(width/3 ,0,width/3, height/3);
+                             //self.topCenterView.frame = CGRectMake(width/3 ,0,width/3, height/3);
                          }
 //
 //                         self.currentController = nil;
@@ -626,44 +641,31 @@ enum {
                              
                              if ( self.currentController == self.topLeftController)
                              {
-                                 UITapGestureRecognizer *tapRecognizer;
-                                 
-                                 tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapTopLeft:)] ;
-                                 //[self.topLeftView addGestureRecognizer:tapRecognizer];
-                                 [self.maskViewTopLeft addGestureRecognizer:tapRecognizer];
+
                                  self.topLeftController.view.frame = self.topLeftRect;
                                  [self addButtomViewAndMaskView:self.maskViewTopLeft];
                              }
                              else if ( self.currentController == self.topRightController)
                              {
-                                 UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapTopRight:)] ;
-                                 //[self.topRightView addGestureRecognizer:tapRecognizer];
-                                 [self.maskViewTopRight addGestureRecognizer:tapRecognizer];
                                  self.topRightController.view.frame = self.topRightRect;
                                  [self addButtomViewAndMaskView:self.maskViewTopRight];
+                                 [self addButtomViewAndMaskView:self.maskViewTopCenter];
                              }
                              else if ( self.currentController == self.bottomLeftController)
                              {
-                                 UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBottomLeft:)] ;
-                                 //[self.bottomLeftView addGestureRecognizer:tapRecognizer];
-                                 [self.maskViewbottomLeft addGestureRecognizer:tapRecognizer];
                                  self.bottomLeftController.view.frame = self.bottomLeftRect;
                                  [self addButtomViewAndMaskView:self.maskViewbottomLeft];
                              }
                              else if ( self.currentController == self.bottomRightController )
                              {
-                                 UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapBottomRight:)] ;
-                                 //[self.bottomRightView addGestureRecognizer:tapRecognizer];
-                                 [self.maskViewbottomRight addGestureRecognizer:tapRecognizer];
+ 
                                  [self addButtomViewAndMaskView:self.maskViewbottomRight];
                              }
                              
                              else if ( self.currentController == self.topCenterController )
                              {
-                                 UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapTopCenter:)] ;
-                                 //[self.topCenterView addGestureRecognizer:tapRecognizer];
-                                 [self.maskViewTopCenter addGestureRecognizer:tapRecognizer];
                                  self.topCenterController.view.frame = self.topCenterRect;
+                                 [self.layerView insertSubview:self.topCenterView belowSubview:self.topRightView];
                                  [self addButtomViewAndMaskView:self.maskViewTopCenter];
                                  [self addButtomViewAndMaskView:self.maskViewTopRight];
                                  [self.layerView addSubview:self.topRightBtn];
