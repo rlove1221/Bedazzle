@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface view3ViewController : UICollectionViewController
+#import "APLCollectionViewController.h"
+@interface view3ViewController : APLCollectionViewController
 
 
 -(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p;

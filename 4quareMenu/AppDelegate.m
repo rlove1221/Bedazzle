@@ -31,9 +31,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(100, 100);
+    layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 10;
     view1ViewController *vc1 = [[view1ViewController alloc] initWithNibName:@"view1ViewController" bundle:nil];
     view2ViewController *vc2 = [[view2ViewController alloc] initWithNibName:@"view2ViewController" bundle:nil];
-    view3ViewController *vc3 = [[view3ViewController alloc] initWithNibName:@"view3ViewController" bundle:nil];
+    //view3ViewController *vc3 = [[view3ViewController alloc] initWithNibName:@"view3ViewController" bundle:nil];
+    view3ViewController *vc3 = [[view3ViewController alloc] initWithCollectionViewLayout:layout];
     view4ViewController *vc4 = [[view4ViewController alloc] initWithNibName:@"view4ViewController" bundle:nil];
     view5ViewController *vc5 = [[view5ViewController alloc] initWithNibName:@"view5ViewController" bundle:nil];
 
@@ -46,22 +52,22 @@
     [self.window makeKeyAndVisible];
     return YES;
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.itemSize = CGSizeMake(100, 100);
-    layout.minimumInteritemSpacing = 10;
-    layout.minimumLineSpacing = 10;
-    view3ViewController* collectionViewController = [[view3ViewController alloc] initWithCollectionViewLayout:layout];
-    collectionViewController.title = @"Layout 1";
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.delegate = self;
-    
-    self.transitionController = [[APLTransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
-    self.transitionController.delegate = self;
-    
-    self.window.rootViewController = self.navigationController;
-    [self.window makeKeyAndVisible];
+//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    layout.itemSize = CGSizeMake(100, 100);
+//    layout.minimumInteritemSpacing = 10;
+//    layout.minimumLineSpacing = 10;
+//    view3ViewController* collectionViewController = [[view3ViewController alloc] initWithCollectionViewLayout:layout];
+    //collectionViewController.title = @"Layout 1";
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.delegate = self;
+//    
+//    self.transitionController = [[APLTransitionController alloc] initWithCollectionView:collectionViewController.collectionView];
+//    self.transitionController.delegate = self;
+//    
+//    self.window.rootViewController = self.navigationController;
+//    [self.window makeKeyAndVisible];
     
 }
 
