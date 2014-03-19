@@ -25,7 +25,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PictureViewController *vc = [[PictureViewController alloc] initWithNibName:@"PictureViewController" bundle:nil];
-    vc.imageName = [self.imageArray objectAtIndex:indexPath.row];
+    vc.imageName = [self.imageArray objectAtIndex:indexPath.row-1];
     [self.view.window.rootViewController presentViewController:vc animated:YES completion:nil];
 
 }
