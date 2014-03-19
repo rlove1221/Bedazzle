@@ -36,7 +36,7 @@
 #define BUTTON_IMAGE_OF_BOTTOMRIGHT_H @"bottomRight_h.png"
 
 @interface Quare4MenuViewController : UIViewController{
-
+    CGRect bottomleftCollectrect;
 //    CGFloat rotation;
 }
 - (IBAction)actionmenu_click:(id)sender;

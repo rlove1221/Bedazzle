@@ -117,9 +117,10 @@
 
    
     
-       self.collectionView.backgroundView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
+       UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
+    self.collectionView.backgroundView =imageView;
     
-self.collectionView.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 640,640)];
+//self.collectionView.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 640,640)];
  //   self.collectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd.png"]];
 
   //  UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0,100,0,640)];

@@ -9,7 +9,7 @@
 #import "Quare4MenuViewController.h"
 #import "MaskView.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "APLCollectionViewController.h"
 @interface Quare4MenuViewController ()
 
 enum {
@@ -90,7 +90,7 @@ enum {
 - (void)rotationToBottomLeft
 {
     [self.maskViewbottomLeft removeFromSuperview];
-    [self rotation:-90 withAnimation:YES completion:^(BOOL finished){
+    [self rotation:270 withAnimation:YES completion:^(BOOL finished){
         [self displayViewController:self.bottomLeftController];
     }];
 }
@@ -485,14 +485,20 @@ enum {
     else
     if ( self.currentController == self.bottomLeftController)
     {
+        APLCollectionViewController *controller = (APLCollectionViewController*)self.bottomLeftController;
+        bottomleftCollectrect = controller.collectionView.frame;
         CGRect rect = self.bottomLeftView.frame;
-        //rect.size.height = width+90;
+//        //rect.size.height = width+90;
         rect.origin.x = rect.origin.x - (height-width);
         rect.size.width = height;
-        
+//        
         self.bottomLeftView.frame =  rect;
         
-        //self.bottomLeftView.frame =  rect;
+        rect = controller.collectionView.frame;
+        
+        rect.size.height = height;
+        controller.collectionView.frame = rect;
+        NSLog(@"test");
         
     }
     else
@@ -604,6 +610,7 @@ enum {
                          {
                              self.bottomLeftController.view.center = CGPointMake(self.bottomLeftController.view.center.x + moveY,self.bottomLeftController.view.center.y - moveX);
                              
+                             
                          }
                          else if ( self.currentController == self.bottomRightController)
                              self.bottomRightController.view.center = CGPointMake(self.bottomRightController.view.center.x - moveX,self.bottomRightController.view.center.y - moveY);
@@ -624,6 +631,10 @@ enum {
                          else if ( self.currentController == self.bottomLeftController)
                          {
                              self.bottomLeftView.frame = CGRectMake((width*3-width/2) - width/2, height + height/3 , width, height );
+                             APLCollectionViewController *controller = (APLCollectionViewController*)self.bottomLeftController;
+                             controller.collectionView.frame = bottomleftCollectrect;
+                             
+                             
                          }
                          else if ( self.currentController == self.topCenterController )
                          {
