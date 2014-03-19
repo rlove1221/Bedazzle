@@ -100,28 +100,63 @@
 #define CELL_ID @"CELL_ID"
 
 @implementation APLCollectionViewController
+@synthesize imageArray;
+
+
 
 -(id)initWithCollectionViewLayout:(UICollectionViewFlowLayout *)layout
 {
     if (self = [super initWithCollectionViewLayout:layout])
     {
+        imageArray = [[NSArray alloc] initWithObjects:@"a0.png",@"a1.png",@"a2.png", nil];
+        
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
     }
+
+ //self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
+
+   
+    
+       self.collectionView.backgroundView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
+    
+self.collectionView.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 640,640)];
+ //   self.collectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd.png"]];
+
+  //  UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0,100,0,640)];
+ //   [imageView setImage:[UIImage imageNamed:@"eventsBckgrd.png"]];
+    
+  
+
+  // self.collectionView.backgroundView = imageView;
+   // self.collectionView.backgroundView = UIViewContentModeScaleToFill;
+    
+
+  
+
+    
     return self;
 }
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
-    UIColor* cellColor = [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
-    cell.contentView.backgroundColor = cellColor;
+    //UIColor* cellColor = [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
+    UIImage *image = [UIImage imageNamed:[imageArray objectAtIndex:indexPath.row]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(0, 100, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+    [cell.contentView addSubview:imageView];
+    //cell.contentView.backgroundColor = cellColor;
+    
+
     return cell;
 }
 
 
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return MAX_COUNT;
+    return [imageArray count];;
 }
 
 

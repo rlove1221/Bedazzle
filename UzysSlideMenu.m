@@ -44,7 +44,7 @@
     UzysSMMenuItemView *itemView = [[[NSBundle mainBundle] loadNibNamed:@"UzysSMMenuItemView" owner:self options:nil] lastObject];
     CGFloat menuHeight =itemView.bounds.size.height * [_pItems count];
     CGFloat menuWidth = itemView.bounds.size.width;
-    [self setFrame:CGRectMake(0, 0, menuWidth, [UIScreen mainScreen].applicationFrame.size.height)];
+    [self setFrame:CGRectMake(0, 50, menuWidth, [UIScreen mainScreen].applicationFrame.size.height)];
     
     
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
@@ -202,6 +202,7 @@
                 itemView.seperatorView.alpha = 0;
                 itemView.imageView.alpha = 1;
                 itemView.backgroundView.alpha = 0.3;
+                
             }
         }];
 
@@ -223,6 +224,7 @@
 }
 -(void)showFullMenu:(BOOL)animation
 {
+    self.textView.text = @"";
     if(animation)
     {
         

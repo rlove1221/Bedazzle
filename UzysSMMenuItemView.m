@@ -84,7 +84,9 @@
             if([self.delegate respondsToSelector:@selector(UzysSMMenuItemDidAction:)] && self.delegate)
             {
                 [self.delegate UzysSMMenuItemDidAction:self];
+            
             }
+        
             _item.block(_item);
         }
     }

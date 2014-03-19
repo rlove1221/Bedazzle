@@ -46,6 +46,16 @@
 		8594054C18C88CF3004681B2 /* bedazzleStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8594054B18C88CF3004681B2 /* bedazzleStar.png */; };
 		A3334F9218C42DEC00B72862 /* view5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334F9018C42DEC00B72862 /* view5ViewController.m */; };
 		A3334F9318C42DEC00B72862 /* view5ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3334F9118C42DEC00B72862 /* view5ViewController.xib */; };
+		A35182E818C9F0C0002652C6 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35182E618C9F0C0002652C6 /* PictureViewController.m */; };
+		A35182E918C9F0C0002652C6 /* PictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A35182E718C9F0C0002652C6 /* PictureViewController.xib */; };
+		A351830218CACA36002652C6 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = A351830118CACA36002652C6 /* UIColor+FlatUI.m */; };
+		A351836818CEA020002652C6 /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A351836718CEA020002652C6 /* TQMultistageTableView.m */; };
+		A3B9057118D627EE00E8FE21 /* eventsBckgrd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B9057018D627EE00E8FE21 /* eventsBckgrd@2x.png */; };
+		A3B9057D18D7C66700E8FE21 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B9057A18D7C66700E8FE21 /* UIImage+BoxBlur.m */; };
+		A3B9057E18D7C66700E8FE21 /* UIERealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B9057C18D7C66700E8FE21 /* UIERealTimeBlurView.m */; };
+		A3B9058018D7C6D400E8FE21 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B9057F18D7C6D400E8FE21 /* Accelerate.framework */; };
+		A3B9058818D93E3900E8FE21 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B9058618D93E3900E8FE21 /* ScheduleTableViewCell.m */; };
+		A3B9058918D93E3900E8FE21 /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B9058718D93E3900E8FE21 /* ScheduleTableViewCell.xib */; };
 		A3BA604A18C928910023587E /* APLTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BA604918C928910023587E /* APLTransitionController.m */; };
 		A3BA604D18C9289B0023587E /* APLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BA604C18C9289B0023587E /* APLCollectionViewController.m */; };
 		A3FB571218C8C2A300634794 /* eventsBckgrd.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB571118C8C2A300634794 /* eventsBckgrd.png */; };
@@ -120,6 +130,22 @@
 		A3334F8F18C42DEC00B72862 /* view5ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = view5ViewController.h; path = ../view5ViewController.h; sourceTree = "<group>"; };
 		A3334F9018C42DEC00B72862 /* view5ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = view5ViewController.m; path = ../view5ViewController.m; sourceTree = "<group>"; };
 		A3334F9118C42DEC00B72862 /* view5ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = view5ViewController.xib; path = ../view5ViewController.xib; sourceTree = "<group>"; };
+		A35182E518C9F0C0002652C6 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		A35182E618C9F0C0002652C6 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		A35182E718C9F0C0002652C6 /* PictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewController.xib; sourceTree = "<group>"; };
+		A351830018CACA36002652C6 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		A351830118CACA36002652C6 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		A351836618CEA020002652C6 /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
+		A351836718CEA020002652C6 /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
+		A3B9057018D627EE00E8FE21 /* eventsBckgrd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eventsBckgrd@2x.png"; sourceTree = "<group>"; };
+		A3B9057918D7C66700E8FE21 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
+		A3B9057A18D7C66700E8FE21 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
+		A3B9057B18D7C66700E8FE21 /* UIERealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIERealTimeBlurView.h; sourceTree = "<group>"; };
+		A3B9057C18D7C66700E8FE21 /* UIERealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIERealTimeBlurView.m; sourceTree = "<group>"; };
+		A3B9057F18D7C6D400E8FE21 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A3B9058518D93E3900E8FE21 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		A3B9058618D93E3900E8FE21 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		A3B9058718D93E3900E8FE21 /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		A3BA604518C927B20023587E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest.framework; sourceTree = "<group>"; };
 		A3BA604818C928910023587E /* APLTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLTransitionController.h; sourceTree = "<group>"; };
 		A3BA604918C928910023587E /* APLTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLTransitionController.m; sourceTree = "<group>"; };
@@ -145,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B9058018D7C6D400E8FE21 /* Accelerate.framework in Frameworks */,
 				4461C2E016F8436700196347 /* QuartzCore.framework in Frameworks */,
 				443C81FE16F6A56800DE5D85 /* UIKit.framework in Frameworks */,
 				443C820016F6A56800DE5D85 /* Foundation.framework in Frameworks */,
@@ -168,6 +195,9 @@
 		443C81F116F6A56800DE5D85 = {
 			isa = PBXGroup;
 			children = (
+				A3B9057818D7C5FC00E8FE21 /* Blur */,
+				A351836518CEA008002652C6 /* multiStageTableView */,
+				A35182F418CAC197002652C6 /* event */,
 				A3BA604718C928380023587E /* CollectionViewTransition */,
 				A3FB571318C8C36900634794 /* view1SlideMenu */,
 				443C824916F6A6E800DE5D85 /* bedazzleMenuViewController */,
@@ -190,6 +220,7 @@
 		443C81FC16F6A56800DE5D85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3B9057F18D7C6D400E8FE21 /* Accelerate.framework */,
 				A3BA604518C927B20023587E /* XCTest.framework */,
 				4461C2DF16F8436700196347 /* QuartzCore.framework */,
 				443C81FD16F6A56800DE5D85 /* UIKit.framework */,
@@ -203,6 +234,9 @@
 		443C820316F6A56800DE5D85 /* bedazzleMenu */ = {
 			isa = PBXGroup;
 			children = (
+				A35182E518C9F0C0002652C6 /* PictureViewController.h */,
+				A35182E618C9F0C0002652C6 /* PictureViewController.m */,
+				A35182E718C9F0C0002652C6 /* PictureViewController.xib */,
 				A3334F8F18C42DEC00B72862 /* view5ViewController.h */,
 				A3334F9018C42DEC00B72862 /* view5ViewController.m */,
 				A3334F9118C42DEC00B72862 /* view5ViewController.xib */,
@@ -232,6 +266,7 @@
 				A3FB572018C8D37E00634794 /* a0@2x.png */,
 				A3FB572118C8D37E00634794 /* a1@2x.png */,
 				A3FB572218C8D37E00634794 /* a2@2x.png */,
+				A3B9057018D627EE00E8FE21 /* eventsBckgrd@2x.png */,
 				A3FB571118C8C2A300634794 /* eventsBckgrd.png */,
 				8594054B18C88CF3004681B2 /* bedazzleStar.png */,
 				8594054718C86C4B004681B2 /* topCenter_n@2x.png */,
@@ -286,6 +321,38 @@
 				440D3C0216FAF7AC00535AC4 /* MaskView.m */,
 			);
 			name = bedazzleMenuViewController;
+			sourceTree = "<group>";
+		};
+		A35182F418CAC197002652C6 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				A351830018CACA36002652C6 /* UIColor+FlatUI.h */,
+				A351830118CACA36002652C6 /* UIColor+FlatUI.m */,
+			);
+			name = event;
+			sourceTree = "<group>";
+		};
+		A351836518CEA008002652C6 /* multiStageTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A351836618CEA020002652C6 /* TQMultistageTableView.h */,
+				A351836718CEA020002652C6 /* TQMultistageTableView.m */,
+				A3B9058518D93E3900E8FE21 /* ScheduleTableViewCell.h */,
+				A3B9058618D93E3900E8FE21 /* ScheduleTableViewCell.m */,
+				A3B9058718D93E3900E8FE21 /* ScheduleTableViewCell.xib */,
+			);
+			name = multiStageTableView;
+			sourceTree = "<group>";
+		};
+		A3B9057818D7C5FC00E8FE21 /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				A3B9057918D7C66700E8FE21 /* UIImage+BoxBlur.h */,
+				A3B9057A18D7C66700E8FE21 /* UIImage+BoxBlur.m */,
+				A3B9057B18D7C66700E8FE21 /* UIERealTimeBlurView.h */,
+				A3B9057C18D7C66700E8FE21 /* UIERealTimeBlurView.m */,
+			);
+			name = Blur;
 			sourceTree = "<group>";
 		};
 		A3BA604718C928380023587E /* CollectionViewTransition */ = {
@@ -395,6 +462,7 @@
 				443C821216F6A56800DE5D85 /* Default@2x.png in Resources */,
 				A3FB571218C8C2A300634794 /* eventsBckgrd.png in Resources */,
 				443C821416F6A56800DE5D85 /* Default-568h@2x.png in Resources */,
+				A3B9058918D93E3900E8FE21 /* ScheduleTableViewCell.xib in Resources */,
 				A3FB572518C8D37E00634794 /* a2@2x.png in Resources */,
 				8594054918C86C4B004681B2 /* topCenter_n@2x.png in Resources */,
 				A3FB571E18C8C3AD00634794 /* UzysSMMenuItemView.xib in Resources */,
@@ -412,8 +480,10 @@
 				A3FB572418C8D37E00634794 /* a1@2x.png in Resources */,
 				441B238916FC41C2009FAEA7 /* bottomRight_n@2x.png in Resources */,
 				441B238A16FC41C2009FAEA7 /* topLeft_h@2x.png in Resources */,
+				A3B9057118D627EE00E8FE21 /* eventsBckgrd@2x.png in Resources */,
 				441B238B16FC41C2009FAEA7 /* topLeft_n@2x.png in Resources */,
 				441B238C16FC41C2009FAEA7 /* topRight_h@2x.png in Resources */,
+				A35182E918C9F0C0002652C6 /* PictureViewController.xib in Resources */,
 				441B238D16FC41C2009FAEA7 /* topRight_n@2x.png in Resources */,
 				8594054C18C88CF3004681B2 /* bedazzleStar.png in Resources */,
 			);
@@ -451,8 +521,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3FB571C18C8C3AD00634794 /* UzysSMMenuItem.m in Sources */,
+				A35182E818C9F0C0002652C6 /* PictureViewController.m in Sources */,
+				A3B9058818D93E3900E8FE21 /* ScheduleTableViewCell.m in Sources */,
+				A351830218CACA36002652C6 /* UIColor+FlatUI.m in Sources */,
 				443C820A16F6A56800DE5D85 /* main.m in Sources */,
+				A351836818CEA020002652C6 /* TQMultistageTableView.m in Sources */,
 				A3BA604A18C928910023587E /* APLTransitionController.m in Sources */,
+				A3B9057D18D7C66700E8FE21 /* UIImage+BoxBlur.m in Sources */,
 				A3FB571D18C8C3AD00634794 /* UzysSMMenuItemView.m in Sources */,
 				443C820E16F6A56800DE5D85 /* AppDelegate.m in Sources */,
 				443C823516F6A62E00DE5D85 /* view1ViewController.m in Sources */,
@@ -462,6 +537,7 @@
 				A3FB571F18C8C3AD00634794 /* UzysSlideMenu.m in Sources */,
 				443C823F16F6A67F00DE5D85 /* view3ViewController.m in Sources */,
 				443C824416F6A69900DE5D85 /* view4ViewController.m in Sources */,
+				A3B9057E18D7C66700E8FE21 /* UIERealTimeBlurView.m in Sources */,
 				443C824816F6A6E000DE5D85 /* Quare4MenuViewController.m in Sources */,
 				440D3C0316FAF7AC00535AC4 /* MaskView.m in Sources */,
 			);
@@ -530,7 +606,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -554,7 +630,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -573,10 +649,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "4quareMenu/Bedazzle-Prefix.pch";
 				INFOPLIST_FILE = "4quareMenu/Bedazzle-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = Bedazzle;
 				PROVISIONING_PROFILE = "5AF3B0E4-DACC-4F4A-A78B-28432DC6BC9D";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5AF3B0E4-DACC-4F4A-A78B-28432DC6BC9D";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -597,10 +674,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "4quareMenu/Bedazzle-Prefix.pch";
 				INFOPLIST_FILE = "4quareMenu/Bedazzle-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = Bedazzle;
 				PROVISIONING_PROFILE = "5AF3B0E4-DACC-4F4A-A78B-28432DC6BC9D";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5AF3B0E4-DACC-4F4A-A78B-28432DC6BC9D";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

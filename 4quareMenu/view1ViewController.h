@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface view1ViewController : UIViewController<UIScrollViewDelegate>
+{
+    
+    IBOutlet UITextView *textView;
+
+}
 - (IBAction)actionMenu:(id)sender;
 
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;

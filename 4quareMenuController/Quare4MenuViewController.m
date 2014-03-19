@@ -267,10 +267,10 @@ enum {
     UIImage *img_n = [UIImage imageNamed:normal];
     UIImage *img_p = [UIImage imageNamed:hightlighted];
     
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, img_n.size.width, img_n.size.height)];
-//    UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    //[btn setImage:img_n forState:UIControlStateNormal];
-    //[btn setImage:img_p forState:UIControlStateHighlighted];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 80)];
+    UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:img_n forState:UIControlStateNormal];
+    [btn setImage:img_p forState:UIControlStateHighlighted];
     btn.transform =  CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(degree));
     btn.tag = tag;
     [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];

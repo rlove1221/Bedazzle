@@ -97,6 +97,7 @@
 #import <UIKit/UIKit.h>
 
 @interface APLCollectionViewController : UICollectionViewController
+@property (nonatomic,retain)NSArray* imageArray;
 
 -(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p;
 

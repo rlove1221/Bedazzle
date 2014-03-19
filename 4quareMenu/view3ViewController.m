@@ -8,7 +8,7 @@
 
 #import "view3ViewController.h"
 #import "APLCollectionViewController.h"
-
+#import "PictureViewController.h"
 @interface view3ViewController ()
 
 
@@ -18,11 +18,18 @@
 
 @implementation view3ViewController
 
+
+
+
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *vc = [self nextViewControllerAtPoint:CGPointZero];
-    [self.navigationController pushViewController:vc animated:YES];
+    PictureViewController *vc = [[PictureViewController alloc] initWithNibName:@"PictureViewController" bundle:nil];
+    vc.imageName = [self.imageArray objectAtIndex:indexPath.row];
+    [self.view.window.rootViewController presentViewController:vc animated:YES completion:nil];
+
 }
+
 
 
 -(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p
@@ -30,7 +37,7 @@
     // We could have multiple section stacks and find the right one,
     UICollectionViewFlowLayout* grid = [[UICollectionViewFlowLayout alloc] init];
     grid.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    grid.itemSize = CGSizeMake(600, 600);
+    grid.itemSize = CGSizeMake(100, 100);
     APLCollectionViewController* nextCollectionViewController = [[APLCollectionViewController alloc] initWithCollectionViewLayout:grid];
     nextCollectionViewController.useLayoutToLayoutNavigationTransitions = YES;
     nextCollectionViewController.title = @"Layout 2";
