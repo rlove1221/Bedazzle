@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface view4ViewController : UIViewController
+#import "MessageTableViewCell.h"
+@interface view4ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSArray *messageArray;
+}
+@property (strong, nonatomic) IBOutlet UITableView *messageTableView;
+- (IBAction)send_click:(id)sender;
 
 @end

@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 70, self.view.frame.size.width,self.view.frame.size.height)];
+    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 70, self.view.frame.size.width,self.tempView.frame.size.height-70)];
     self.mTableView.backgroundColor = [UIColor clearColor];
     self.mTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mTableView.delegate = self;

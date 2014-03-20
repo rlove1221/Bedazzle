@@ -10,6 +10,7 @@
 #import "MaskView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "APLCollectionViewController.h"
+#import "define.h"
 @interface Quare4MenuViewController ()
 
 enum {
@@ -281,9 +282,20 @@ enum {
 }
 
 
+- (void)sendToken
+{
+    [ServiceManager sendToken];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken]) {
+        [self performSelectorInBackground:@selector(sendToken) withObject:nil];
+    }
+    
+
 	// Do any additional setup after loading the view.
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;

@@ -16,7 +16,7 @@
 #import "Quare4MenuViewController.h"
 #import "APLTransitionController.h"
 #import "APLCollectionViewController.h" 
-
+#import "define.h"
 @interface AppDelegate () <UINavigationControllerDelegate, APLTransitionControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
@@ -28,6 +28,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSUserDefaults standardUserDefaults] setObject:@"test token" forKey:kDeviceToken];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -96,6 +100,36 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *tokenStr = [deviceToken description];
+    NSString *hexStr = [[[tokenStr
+                          stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                         stringByReplacingOccurrencesOfString:@">" withString:@""]
+                        stringByReplacingOccurrencesOfString:@" " withString:@""] ;
+    [userDefault setObject:hexStr forKey:kDeviceToken];
+    [userDefault synchronize];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSString *message = nil;
+    id alert = [userInfo objectForKey:@"alert"];
+    if ([alert isKindOfClass:[NSString class]]) {
+        message = alert;
+    } else if ([alert isKindOfClass:[NSDictionary class]]) {
+        message = [alert objectForKey:@"body"];
+    }
+    if (alert) {
+        [Util showAlertWithString:message];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc postNotificationName:@"didReceiveNotification" object:nil];
+    }
+    
 }
 
 @end

@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
     
@@ -172,6 +173,7 @@
     self.uzysSMenu.frame = CGRectMake(self.uzysSMenu.frame.origin.x, self.uzysSMenu.frame.origin.y+ statusbarHeight, self.uzysSMenu.frame.size.width, self.uzysSMenu.frame.size.height);
     self.uzysSMenu.textView = textView;
     [self.view addSubview:self.uzysSMenu];
+    [self.uzysSMenu toggleMenu];
 }
 
 - (void)didReceiveMemoryWarning

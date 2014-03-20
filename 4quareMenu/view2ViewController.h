@@ -10,6 +10,7 @@
 #import "TQMultistageTableView.h"
 
 @interface view2ViewController : UIViewController <TQTableViewDataSource, TQTableViewDelegate >
+@property (strong, nonatomic) IBOutlet UIView *tempView;
 
 @property (nonatomic,strong) TQMultistageTableView *mTableView;
 @property (nonatomic,strong) NSArray *weekDays;
