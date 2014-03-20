@@ -18,6 +18,7 @@
 @property (nonatomic,strong) NSMutableArray *detailList2;
 @property (nonatomic,strong) NSMutableArray *detailList3;
 @property (nonatomic,strong) NSMutableArray *detailList4;
+@property (nonatomic,strong) NSMutableArray *scheduleB;
 
 
 

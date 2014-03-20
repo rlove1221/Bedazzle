@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIERealTimeBlurView.h"
 @interface ScheduleTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timeA;
 @property (weak, nonatomic) IBOutlet UILabel *timeB;

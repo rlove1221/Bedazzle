@@ -108,7 +108,7 @@
 {
     if (self = [super initWithCollectionViewLayout:layout])
     {
-        imageArray = [[NSArray alloc] initWithObjects:@"a0.png",@"a1.png",@"a2.png", nil];
+        imageArray = [[NSArray alloc] initWithObjects:@"00001_3271343.jpg",@"00002_3271358.jpg",@"00003_3271404.jpg",@"00004_3271411.jpg",@"00005_3271501.jpg",@"00006_3271538.jpg",@"00007_3271595.jpg",@"00008_3271606.jpg",@"00009_3271626.jpg",@"00010_3271649.jpg",@"00011_3271655.jpg",@"00012_3271717.jpg",@"00013_3271752.jpg",@"00014_3271792.jpg",@"00015_3271845.jpg",@"00016_3271869.jpg",@"00017_3271909.jpg",@"00018_3271775.jpg",@"00019_3271849.jpg",@"00020_3272101.jpg",@"00021_3272162.jpg",@"00022_3272267.jpg",@"00023_3272314.jpg",@"00024_3272334.jpg",@"00025_3272351.jpg",@"00026_3272402.jpg",@"00027_3272417.jpg",@"00028_3272472.jpg",@"00029_3272504.jpg",@"00030_3272518.jpg",@"00031_3272535.jpg",@"00032_3272551.jpg",@"00033_3272569.jpg",@"00034_3272647.jpg",@"00035_3272686.jpg",@"00036_3272690.jpg",@"00037_3272725.jpg",@"00038_3272730.jpg",@"00039_3272767.jpg",@"00040_3272783.jpg",@"00041_3272809.jpg",@"00042_3272824.jpg",@"00043_3272867.jpg",@"00043_3272867.jpg",@"Arechino (sibs)__3271568.jpg",@"Arechino (sibs)__3271571.jpg",@"Belmatch__3271584.jpg",@"Bianco__3272212.jpg",@"Derleth__3271629.jpg",@"Derleth__3271743.jpg",@"Lo Presti__3271316.jpg",@"Solnsteva__3271462.jpg", nil];
         
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
     }
