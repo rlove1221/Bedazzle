@@ -44,7 +44,7 @@
     UzysSMMenuItemView *itemView = [[[NSBundle mainBundle] loadNibNamed:@"UzysSMMenuItemView" owner:self options:nil] lastObject];
     CGFloat menuHeight =itemView.bounds.size.height * [_pItems count];
     CGFloat menuWidth = itemView.bounds.size.width;
-    [self setFrame:CGRectMake(0, 50, menuWidth, [UIScreen mainScreen].applicationFrame.size.height-50)];
+    [self setFrame:CGRectMake(0, 60, menuWidth, [UIScreen mainScreen].applicationFrame.size.height-50)];
     
     
     _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];

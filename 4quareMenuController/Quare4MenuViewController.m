@@ -23,6 +23,7 @@ enum {
 
 
 @property (nonatomic,strong) UIImageView *centerImageView;
+@property (nonatomic,strong) UIImageView *centerLogoImageView;
 
 @property (nonatomic,strong) UIView *topLeftView;
 @property (nonatomic,strong) UIView *topRightView;
@@ -245,11 +246,19 @@ enum {
                                              ,CGRectGetMinX(self.bottomRightView.frame)
                                              ,CGRectGetMinY(self.bottomRightView.frame));
     
-    self.centerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bedazzleStar.png"]];
+    self.centerImageView = [[UIImageView alloc] initWithImage:[UIImage //imageNamed:@"bedazzleStar.png"]];
+        imageNamed:@"star1.png"]];
     //self.centerImageView.hidden = YES;
     
     self.centerImageView.frame = CGRectMake(0, 0,160,160);
     self.centerImageView.center = self.bottomRightBtn.frame.origin;
+    
+    self.centerLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo1.png"]];
+    //self.centerImageView.hidden = YES;
+    
+    self.centerLogoImageView.frame = CGRectMake(0, 0,280,110);
+    self.centerLogoImageView.center = self.bottomRightBtn.frame.origin;
+
    
     [self.layerView addSubview:self.topLeftView];
     [self.layerView addSubview:self.topCenterView];
@@ -265,8 +274,8 @@ enum {
 
 -(UIButton *)createButtonWithImageNameForNormal:(NSString *)normal imageNameForHightlighted:(NSString *)hightlighted transformRotation:(CGFloat) degree buttonTag:(NSInteger)tag
 {
-    UIImage *img_n = [UIImage imageNamed:normal];
-    UIImage *img_p = [UIImage imageNamed:hightlighted];
+    UIImage *img_n = [UIImage imageNamed:@"noimage"];
+    UIImage *img_p = [UIImage imageNamed:@"noimage"];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 80)];
     UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -294,7 +303,7 @@ enum {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken]) {
         [self performSelectorInBackground:@selector(sendToken) withObject:nil];
     }
-    
+    [self.navigationController setNavigationBarHidden:YES];
 
 	// Do any additional setup after loading the view.
     CGFloat width = self.view.frame.size.width;
@@ -370,6 +379,7 @@ enum {
 //    [self.layerView addSubview:self.closeBtn];
     
     [self.layerView addSubview:self.centerImageView];
+    [self.layerView addSubview:self.centerLogoImageView];
 //
     [self.layerView addSubview:self.topLeftBtn];
     [self.layerView addSubview:self.topRightBtn];
@@ -436,6 +446,7 @@ enum {
 
 -(void)displayViewController:(UIViewController *)viewController
 {
+    self.centerLogoImageView.hidden = YES;
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
     NSLog(@"display top left");
@@ -492,6 +503,7 @@ enum {
             //[self.topCenterView removeGestureRecognizer:[self.topCenterView.gestureRecognizers objectAtIndex:0]];
             [self.layerView bringSubviewToFront:self.topCenterView];
             [self.layerView bringSubviewToFront:self.centerImageView];
+            [self.layerView bringSubviewToFront:self.centerLogoImageView];
             [self.layerView bringSubviewToFront:self.topCenterBtn];
         }
     else
@@ -599,6 +611,7 @@ enum {
 
 -(void)closeViewController
 {
+    self.centerLogoImageView.hidden = NO;
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
 //    NSLog(@"close bottom right");
@@ -630,6 +643,7 @@ enum {
                              self.topCenterController.view.center = CGPointMake(self.topCenterController.view.center.x,self.topCenterController.view.center.y + moveY);
                      }
                      completion:^(BOOL finished) {
+                         
                          
                          if ( self.currentController == self.topLeftController)
                          {

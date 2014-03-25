@@ -40,4 +40,9 @@
 - (IBAction)back_click:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return imageView;
+}
 @end

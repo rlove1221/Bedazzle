@@ -119,6 +119,7 @@
     
        UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
     self.collectionView.backgroundView =imageView;
+    imageView.contentMode = UIViewContentModeScaleToFill;
     
 //self.collectionView.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 640,640)];
  //   self.collectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd.png"]];

@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface view5ViewController : UIViewController
+@interface view5ViewController : UIViewController<UIScrollViewDelegate>
+{
+    
+    IBOutlet UIScrollView *aScrollView;
+    IBOutlet UIView *contentView;
+    IBOutlet UITextView *bottomText;
+}
+    
+    
+
+
+
+
 
 @end

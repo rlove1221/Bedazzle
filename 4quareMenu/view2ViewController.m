@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 70, self.view.frame.size.width,self.tempView.frame.size.height-70)];
+    self.mTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, self.tempView.frame.origin.y, self.view.frame.size.width,self.tempView.frame.size.height)];
     self.mTableView.backgroundColor = [UIColor clearColor];
     self.mTableView.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mTableView.delegate = self;
@@ -37,52 +37,52 @@
     detailList4 = [[NSMutableArray alloc] initWithCapacity:0];
     scheduleB = [[NSMutableArray alloc] initWithCapacity:0];
     
-    NSArray *mondayList = [[NSArray alloc] initWithObjects:@"8:00pm\nto\n9:30pm", @"5:00p,\nto\n6:30pm", @"3:30pm\nto\n4:30pm", nil];
-    NSArray *tueList = [[NSArray alloc] initWithObjects:@"7:15pm\nto\n9:00pm", @"5:00pm\nto\n5:45pm", nil];
-    NSArray *wedList = [[NSArray alloc] initWithObjects:@"9:00pm\nto\n9:45pm", @"7:00pm\nto\n8:00pm", @"5:30pm\nto\n6:15pm",@"4:00pm\nto\n4:45pm", nil];
-    NSArray *thuList = [[NSArray alloc] initWithObjects:@"6:30pm\nto\n8:00pm", @"4:30pm\nto\n5:30pm", nil];
-    NSArray *friList = [[NSArray alloc] initWithObjects:@"6:45pm\nto\n7:45pm", @"5:00pm\nto\n5:45pm", nil];
-    NSArray *satList = [[NSArray alloc] initWithObjects:@"12:45am\nto\n1:30pm", @"11:30am\nto\n12:00pm",@"9:00am\nto\n10:30am",nil];
+    NSArray *mondayList = [[NSArray alloc] initWithObjects:@"3:30\nto\n4:00", @"5:00\nto\n6:30", @"8:00\nto\n9:30", nil];
+    NSArray *tueList = [[NSArray alloc] initWithObjects:@"4:00\nto\n5:00", @"5:45\nto\n7:15", nil];
+    NSArray *wedList = [[NSArray alloc] initWithObjects:@"4:00\nto\n4:45", @"5:30\nto\n6:15", @"7:00\nto\n8:00",@"9:00\nto\n9:45", nil];
+    NSArray *thuList = [[NSArray alloc] initWithObjects:@"3:45\nto\n4:30", @"5:30\nto\n6:30", nil];
+    NSArray *friList = [[NSArray alloc] initWithObjects:@"2:30\nto\n3:15", @"5:00pm\nto\n5:45pm",@"6:45\nto\n7:45", nil];
+    NSArray *satList = [[NSArray alloc] initWithObjects:@"9:00am\nto\n10:30am", @"11:30am\nto\n12:00",@"12:45\nto\n1:30",nil];
     
    //bottom timecell
-    NSArray *mondayB = [[NSArray alloc] initWithObjects:@"6:30pm\nto\n8:00pm", @"4:30pm\nto\n5:00pm",@"", nil];
-    NSArray *tueB = [[NSArray alloc] initWithObjects:@"5:45pm\nto\n7:15pm", @"4:00pm\nto\n5:00pm", nil];
-    NSArray *wedB = [[NSArray alloc] initWithObjects:@"8:00pm\nto\n8:45pm", @"6:15pm\nto\n7:00pm",@"4:45pm\nto\n5:30pm",@"",nil];
-    NSArray *thuB = [[NSArray alloc] initWithObjects:@"5:30pm\to\n6:30pm", @"3:45pm\nto\n4:30pm", nil];
-    NSArray *friB = [[NSArray alloc] initWithObjects:@"5:45pm\nto\n6:45pm", @"3:30pm\nto\n5:00", nil];
-    NSArray *satB = [[NSArray alloc] initWithObjects:@"12:00pm\nto\n12:45pm", @"10:30am\nto\n11:30am",@"", nil];
+    NSArray *mondayB = [[NSArray alloc] initWithObjects:@"4:30\nto\n5:00", @"6:30\nto\n8:00",@"", nil];
+    NSArray *tueB = [[NSArray alloc] initWithObjects:@"5:00\nto\n5:45", @"7:15\nto\n9:00", nil];
+    NSArray *wedB = [[NSArray alloc] initWithObjects:@"4:45\nto\n5:30", @"6:15\nto\n7:00",@"8:00\nto\n8:45",@"",nil];
+    NSArray *thuB = [[NSArray alloc] initWithObjects:@"4:30\nto\n5:30", @"6:30\nto\n8:00", nil];
+     NSArray *friB = [[NSArray alloc] initWithObjects:@"3:30\nto\n5:00", @"5:45\nto\n6:45",@"", nil];
+    NSArray *satB = [[NSArray alloc] initWithObjects:@"10:30am\nto\n11:30am", @"12:00\nto\n12:45",@"", nil];
    
     
     //topCell
-    NSArray *mondayDetails = [[NSArray alloc] initWithObjects:@"JAZZ/LYRICAL",@"BALLET TECHNIQUE",@"JAZZ/BALLET",@"", nil];
-    NSArray *tueDetails = [[NSArray alloc] initWithObjects:@"JAZZ/TAP",@"TAP", nil];
-    NSArray *wedDetails = [[NSArray alloc] initWithObjects:@"HIP HOP",@"TAP COMPANY",@"HIP HOP",@"HIP HOP",nil];
-    NSArray *thurDetails = [[NSArray alloc] initWithObjects:@"SPECIALTY COMPANY",@"MODERN &\nBALLET TECH", nil];
-    NSArray *friDetails = [[NSArray alloc] initWithObjects:@"ACRO",@"ACRO", nil];
-    NSArray *satDetails = [[NSArray alloc] initWithObjects:@"CREATIVE MOVEMENT\n ",@"TAP",@"JAZZ & LYRICAL\n", nil];
+    NSArray *mondayDetails = [[NSArray alloc] initWithObjects:@"JAZZ/BALLET",@"BALLET TECHNIQUE",@"JAZZ/LYRICAL",@"", nil];
+    NSArray *tueDetails = [[NSArray alloc] initWithObjects:@"JAZZ",@"JAZZ/LYRICAL", nil];
+    NSArray *wedDetails = [[NSArray alloc] initWithObjects:@"HIP HOP",@"HIP HOP",@"TAP COMPANY",@"HIP HOP",nil];
+    NSArray *thurDetails = [[NSArray alloc] initWithObjects:@"BALLET",@"JAZZ COMPANY", nil];
+    NSArray *friDetails = [[NSArray alloc] initWithObjects:@"CREATIVE MOVEMENT",@"ACRO", @"ACRO",nil];
+    NSArray *satDetails = [[NSArray alloc] initWithObjects:@"JAZZ/LYRICAL",@"TAP",@"CREATIVE MOVEMENT\n", nil];
     
-    NSArray *mondayDetails2 = [[NSArray alloc] initWithObjects:@"12thGrade to Adults",@"Divas/Superstars",@"K & 1st Grade", nil];
-    NSArray *tueDetails2 = [[NSArray alloc] initWithObjects:@"6thGrade & Up",@"2nd-5th Grade", nil];
-    NSArray *wedDetails2 = [[NSArray alloc] initWithObjects:@"12th to Adults",@"",@"4th to 6th Grade",@"K & 1stGrade", nil];
-    NSArray *thurDetails2 = [[NSArray alloc] initWithObjects:@"",@"", nil];
-    NSArray *friDetails2 = [[NSArray alloc] initWithObjects:@"Level 3",@"Level 1", nil];
-    NSArray *satDetails2 = [[NSArray alloc] initWithObjects:@"Level 2\nAges 3 1/2 & 4 1/2",@"K & 1st Grade",@"Tiny Tots\nCompany", nil];
+    NSArray *mondayDetails2 = [[NSArray alloc] initWithObjects:@"K to 1st Grade",@"Divas/Superstars",@"12th Grade & Adults", nil];
+    NSArray *tueDetails2 = [[NSArray alloc] initWithObjects:@"2nd to 5th Grade",@"Divas Company", nil];
+    NSArray *wedDetails2 = [[NSArray alloc] initWithObjects:@"K & 1st Grade",@"4th to 6th grade",@"",@"12th Grade & Adults", nil];
+    NSArray *thurDetails2 = [[NSArray alloc] initWithObjects:@"2nd to 5th Grade",@"SRs", nil];
+    NSArray *friDetails2 = [[NSArray alloc] initWithObjects:@"Level 1\nAges 2 & 3",@"Level 1",@"Level 3", nil];
+    NSArray *satDetails2 = [[NSArray alloc] initWithObjects:@"Tiny Tots Company",@"K & 1st Grade",@"Level 2\nAges 3 1/2 & 41/2", nil];
     
     
     //bottomCell
-    NSArray *mondayDetails3 = [[NSArray alloc] initWithObjects:@"BALLET TECHNIQUE",@"TAP",@"", nil];
-    NSArray *tueDetails3 = [[NSArray alloc] initWithObjects:@"JAZZ/LYRICAL",@"JAZZ", nil];
-    NSArray *wedDetails3 = [[NSArray alloc] initWithObjects:@"TAP",@"HIP HOP",@"HIP HOP",@"", nil];
-    NSArray *thurDetails3 = [[NSArray alloc] initWithObjects:@"JAZZ COMPANY",@"BALLET", nil];
-    NSArray *friDetails3 = [[NSArray alloc] initWithObjects:@"ACRO",@"JAZZ & LYRICAL\n ", nil];
-    NSArray *satDetails3 = [[NSArray alloc] initWithObjects:@"CREATIVE MOVEMENT\n ",@"JAZZ & BALLET",@"",nil];
+    NSArray *mondayDetails3 = [[NSArray alloc] initWithObjects:@"TAP",@"BALLET TECHNIQUE",@"", nil];
+    NSArray *tueDetails3 = [[NSArray alloc] initWithObjects:@"TAP",@"JAZZ/TAP", nil];
+    NSArray *wedDetails3 = [[NSArray alloc] initWithObjects:@"HIP HOP",@"HIP HOP",@"TAP",@"", nil];
+    NSArray *thurDetails3 = [[NSArray alloc] initWithObjects:@"MODERN/BALLET TECH",@"SPECIALTY CO", nil];
+    NSArray *friDetails3 = [[NSArray alloc] initWithObjects:@"JAZZ & LYRICAL\n",@"ACRO",@"", nil];
+    NSArray *satDetails3 = [[NSArray alloc] initWithObjects:@"JAZZ/BALLET",@"CREATIVE MOVEMENT\n",@"",nil];
     
-    NSArray *mondayDetails4 = [[NSArray alloc] initWithObjects:@"SR Company",@"K-1st Grade",@"", nil];
-    NSArray *tueDetails4 = [[NSArray alloc] initWithObjects:@"Divas Company",@"2nd-5th Grades", nil];
-    NSArray *wedDetails4 = [[NSArray alloc] initWithObjects:@"12th to Adults",@"7th to 11th Grade", @"2nd & 3rd Grade",@"", nil];
-    NSArray *thurDetails4 = [[NSArray alloc] initWithObjects:@"SRs",@"2nd to 5th Grade", nil];
-    NSArray *friDetails4= [[NSArray alloc] initWithObjects:@"Level 2",@"SUPERSTARS\nCOMPANY", nil];
-    NSArray *satDetails4 = [[NSArray alloc] initWithObjects:@"Level 1\nAges 2 & 3",@"K & 1st Grade",@"", nil];
+    NSArray *mondayDetails4 = [[NSArray alloc] initWithObjects:@"K & 1st Grade",@"Sr. Company",@"", nil];
+    NSArray *tueDetails4 = [[NSArray alloc] initWithObjects:@"2nd to 5th Grade",@"6th Grade & up", nil];
+    NSArray *wedDetails4 = [[NSArray alloc] initWithObjects:@"2nd & 3rd Grade",@"7th to 11th Grade", @"12th grade & Adults",@"", nil];
+    NSArray *thurDetails4 = [[NSArray alloc] initWithObjects:@"",@"", nil];
+    NSArray *friDetails4= [[NSArray alloc] initWithObjects:@"SUPERSTARS\nCOMPANY",@"LEVEL 2",@"", nil];
+    NSArray *satDetails4 = [[NSArray alloc] initWithObjects:@"K & 1st Grade",@"Level 1\nAges 2 & 3",@"", nil];
 
     
     [scheduleList addObject:mondayList];
@@ -266,7 +266,7 @@
 
 - (CGFloat)mTableView:(TQMultistageTableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 70;
 }
 //secondopen
 //- (CGFloat)mTableView:(TQMultistageTableView *)tableView heightForOpenCellAtIndexPath:(NSIndexPath *)indexPath
@@ -281,14 +281,21 @@
     //[control setBackgroundColor:[UIColor colorWithRed:(100/255) green:(5/255) blue:(8/255) alpha:1.0]];
     
     //sepertor
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 48, tableView.frame.size.width, 2)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 68, tableView.frame.size.width, 2)];
     view.backgroundColor = [UIColor wetAsphaltColor];//CELL SEPERATOR
     UILabel *label = [[UILabel alloc] init];
     label.text = [self.weekDays objectAtIndex:section
                   ];
 //monday
     label.textColor = [UIColor colorWithRed:255/255.0f green:238/255.0f blue:244/255.0f alpha:1.0];//text label
-    label.frame = CGRectMake(20, 0, 200, 40);
+    label.frame = CGRectMake(130, 10, 200, 50);
+    label.textAlignment = NSTextAlignmentCenter;
+   
+   // UIImageView *image = [[UIImageView alloc]initWithImage:<#(UIImage *)#>;
+    
+
+    
+    
     [control addSubview:label];
     [control addSubview:view];
     return control;
@@ -296,6 +303,7 @@
 
 - (void)mTableView:(TQMultistageTableView *)tableView didSelectHeaderAtSection:(NSInteger)section
 {
+    
     NSLog(@"headerClick%d",section);
 }
 

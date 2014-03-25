@@ -34,7 +34,9 @@
         self.selectOldIndexPath = nil;
         
         //
-        _tableView = [[UITableView alloc] initWithFrame:frame];
+        CGRect rect = frame ;
+        rect.origin.y = 0;
+        _tableView = [[UITableView alloc] initWithFrame:rect];
         _tableView.delegate     = self;
         _tableView.dataSource   = self;
         [self addSubview:_tableView];
@@ -175,6 +177,7 @@
 //列表Header点击
 - (void)tableViewHeaderTouchUpInside:(UITapGestureRecognizer *)gesture
 {
+    NSLog(@"click");
     int section = gesture.view.tag;
     [self delegate_didSelectHeaderAtSection:section];
     [self openOrCloseHeaderWithSection:section];
@@ -388,6 +391,7 @@
     }
     else
     {
+        
         if (self.selectIndexPath.section < 0)
         {
             [self insertRowWithSection:section toIndexPaths:insertIndexPaths];
@@ -401,12 +405,17 @@
             
             [self insertRowWithSection:section toIndexPaths:insertIndexPaths];
         }
+
+        
     }
     
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationLeft];
     [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
+    NSIndexPath *indexpath2 =[NSIndexPath indexPathForRow:-1 inSection:section];
+    
+    [self.tableView scrollToRowAtIndexPath:indexpath2 atScrollPosition:UITableViewScrollPositionTop animated:NO];
 }
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath

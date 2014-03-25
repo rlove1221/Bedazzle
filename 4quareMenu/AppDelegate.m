@@ -17,6 +17,7 @@
 #import "APLTransitionController.h"
 #import "APLCollectionViewController.h" 
 #import "define.h"
+#import "FlipSquaresNavigationController.h"
 @interface AppDelegate () <UINavigationControllerDelegate, APLTransitionControllerDelegate>
 
 @property (nonatomic) UINavigationController *navigationController;
@@ -49,12 +50,21 @@
 
     
     Quare4MenuViewController *q4mc = [[Quare4MenuViewController alloc]initWithTopLeft:vc1 TopRight:vc2 bottomLeft:vc3 bottomRight:vc4 TopCenter:vc5];
-    
-    
-    self.window.rootViewController = q4mc;
+    FlipSquaresNavigationController *nav = [[FlipSquaresNavigationController alloc] initWithRootViewController:q4mc];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+      self.window.rootViewController = nav;
 //    [self.window addSubview:q4mc.view];
     [self.window makeKeyAndVisible];
+    
+    [self.window makeKeyAndVisible];
+    
+  
+    
+ 
+    
     return YES;
+    
+    
     
 //    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
 //    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
