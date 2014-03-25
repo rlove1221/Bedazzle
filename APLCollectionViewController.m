@@ -95,7 +95,7 @@
  */
 
 #import "APLCollectionViewController.h"
-
+#import "Util.h"
 #define MAX_COUNT 60
 #define CELL_ID @"CELL_ID"
 
@@ -146,6 +146,7 @@
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     //UIColor* cellColor = [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
     UIImage *image = [UIImage imageNamed:[imageArray objectAtIndex:indexPath.row]];
+    image = [Util imageWithImage:image scaledToSize:CGSizeMake(100, 100)];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.frame = CGRectMake(0, 100, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
     [cell.contentView addSubview:imageView];

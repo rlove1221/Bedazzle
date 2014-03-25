@@ -16,4 +16,5 @@
 + (BOOL) NSStringIsValidPhoneNumber:(NSString *)checkString;
 + (NSString *)imageDirectoryPath;
 + (BOOL)checkFile:(NSString *)path;
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize ;
 @end
