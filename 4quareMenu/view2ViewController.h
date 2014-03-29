@@ -20,6 +20,7 @@
 @property (nonatomic,strong) NSMutableArray *detailList3;
 @property (nonatomic,strong) NSMutableArray *detailList4;
 @property (nonatomic,strong) NSMutableArray *scheduleB;
+- (IBAction)schedule_Click:(id)sender;
 
 
 

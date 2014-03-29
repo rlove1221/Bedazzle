@@ -7,16 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FUIAlertView.h"
+#import "UIPopoverController+FlatUI.h"
+#import "FUIButton.h"
+#import "UIFont+FlatUI.h"
+#import "UIColor+FlatUI.h"
+#import <MessageUI/MessageUI.h>
 
-@interface view5ViewController : UIViewController<UIScrollViewDelegate>
+@interface view5ViewController : UIViewController<UIScrollViewDelegate,FUIAlertViewDelegate,UIActionSheetDelegate,MFMailComposeViewControllerDelegate>
 {
     
     IBOutlet UIScrollView *aScrollView;
     IBOutlet UIView *contentView;
     IBOutlet UITextView *bottomText;
+    IBOutlet UITextView *bottomText2;
+    MFMailComposeViewController *mc;
 }
     
     
+@property (weak, nonatomic) IBOutlet FUIButton *alertViewButton;
 
 
 

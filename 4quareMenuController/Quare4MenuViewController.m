@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "APLCollectionViewController.h"
 #import "define.h"
+#import "FlipSquaresNavigationController.h"
 @interface Quare4MenuViewController ()
 
 enum {
@@ -24,6 +25,8 @@ enum {
 
 @property (nonatomic,strong) UIImageView *centerImageView;
 @property (nonatomic,strong) UIImageView *centerLogoImageView;
+@property (nonatomic,strong) UIImageView *circleImageView;
+@property (nonatomic, strong) UIButton *phoneBT;
 
 @property (nonatomic,strong) UIView *topLeftView;
 @property (nonatomic,strong) UIView *topRightView;
@@ -258,7 +261,18 @@ enum {
     
     self.centerLogoImageView.frame = CGRectMake(0, 0,280,110);
     self.centerLogoImageView.center = self.bottomRightBtn.frame.origin;
-
+    
+    self.phoneBT = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 60 , self.view.frame.size.height - 60 , 55, 55)];
+    //self.phoneBT  setb
+    //self.phoneBT.center = self.bottomRightBtn.frame.origin;
+    [self.phoneBT setBackgroundImage:[UIImage imageNamed:@"callbutton.png"] forState:UIControlStateNormal];
+    [self.phoneBT addTarget:self action:@selector(showAlertView:) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.layerView addSubview:self.closeBtn];
+    
+    self.circleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+    //self.centerImageView.hidden = YES;
+    
+    self.circleImageView.frame = CGRectMake(self.view.frame.size.width - 51, self.view.frame.size.height - 51,50,50);
    
     [self.layerView addSubview:self.topLeftView];
     [self.layerView addSubview:self.topCenterView];
@@ -269,7 +283,8 @@ enum {
     
     
     [self.view addSubview:self.layerView];
-    
+    [self.view addSubview:self.circleImageView];
+    [self.view addSubview:self.phoneBT];
 }
 
 -(UIButton *)createButtonWithImageNameForNormal:(NSString *)normal imageNameForHightlighted:(NSString *)hightlighted transformRotation:(CGFloat) degree buttonTag:(NSInteger)tag
@@ -278,7 +293,7 @@ enum {
     UIImage *img_p = [UIImage imageNamed:@"noimage"];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 80)];
-    UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:img_n forState:UIControlStateNormal];
     [btn setImage:img_p forState:UIControlStateHighlighted];
     btn.transform =  CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(degree));
@@ -293,16 +308,21 @@ enum {
 
 - (void)sendToken
 {
-    [ServiceManager sendToken];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken]) {
+        [ServiceManager sendToken];
+    }
 }
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kDeviceToken]) {
-        [self performSelectorInBackground:@selector(sendToken) withObject:nil];
-    }
+    
+        
+    [self performSelectorInBackground:@selector(sendToken) withObject:nil];
+    
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(sendToken) userInfo:nil repeats:YES];
+    
     [self.navigationController setNavigationBarHidden:YES];
 
 	// Do any additional setup after loading the view.
@@ -373,19 +393,21 @@ enum {
     
     self.layerView.center = CGPointMake(width/2,height/2);
     
-//    self.closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    self.closeBtn.frame =CGRectMake((size*width - 40 )/2 , (height * size - 40)/2 , 40, 40);
+    self.phoneBT = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //self.closeBtn.frame =CGRectMake((size*width - 40 )/2 , (height * size - 40)/2 , 40, 40);
 //    [self.closeBtn addTarget:self action:@selector(btnClickClick:) forControlEvents:UIControlEventTouchUpInside];
 //    [self.layerView addSubview:self.closeBtn];
     
     [self.layerView addSubview:self.centerImageView];
     [self.layerView addSubview:self.centerLogoImageView];
+    
 //
     [self.layerView addSubview:self.topLeftBtn];
     [self.layerView addSubview:self.topRightBtn];
     [self.layerView addSubview:self.bottomLeftBtn];
     [self.layerView addSubview:self.bottomRightBtn];
     [self.layerView addSubview:self.topCenterBtn];
+    //[self.layerView addSubview:self.phoneBT];
     
     //[self rotation:DEFAUTROTATION withAnimation:NO completion:nil];
 }
@@ -527,6 +549,7 @@ enum {
     }
     else
     if (self.currentController == self.bottomRightController) {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
         CGRect rect = self.bottomRightView.frame;
         rect.size.height = height;
         //rect.origin.x = -height+rect.size.width;
@@ -725,6 +748,88 @@ enum {
 //    [self.layerView addSubview:self.bottomRightBtn];
     
 }
+
+- (void)showAlertView:(id)sender {
+    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"458 Midland Ave\nStaten Island, NY 10306\n 718.980.0189" message:@"" delegate:nil cancelButtonTitle:@"dismiss" otherButtonTitles:@"call Bedazzle",@"@Bedazzle", nil];
+    alertView.delegate = self;
+    alertView.titleLabel.textColor = [UIColor cloudsColor];
+    alertView.titleLabel.font = [UIFont boldFlatFontOfSize:16];
+    alertView.messageLabel.textColor = [UIColor cloudsColor];
+    alertView.messageLabel.font = [UIFont flatFontOfSize:14];
+    alertView.backgroundOverlay.backgroundColor = [[UIColor cloudsColor] colorWithAlphaComponent:0.8];
+    alertView.alertContainer.backgroundColor = [UIColor midnightBlueColor];
+    alertView.defaultButtonColor = [UIColor colorWithRed:1 green:0.0784314 blue:0.576471 alpha:.7];
+    alertView.defaultButtonShadowColor = [UIColor asbestosColor];
+    alertView.defaultButtonFont = [UIFont boldFlatFontOfSize:16];
+    alertView.defaultButtonTitleColor = [UIColor cloudsColor];
+    [alertView show];
+}
+- (void)alertView:(FUIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        UIDevice *device = [UIDevice currentDevice];
+        if ([[device model] isEqualToString:@"iPhone"] ) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:7189800189"]]];
+        } else {
+            UIAlertView *notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature. Call us: 718 980.0189" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [notpermitted show];
+        }
+    }else if(buttonIndex ==2) {
+        // Email Subject
+        NSString *emailTitle = @"hello Bedazzle";
+        // Email Content
+        NSString *messageBody = @"";
+        // To address
+        NSArray *toRecipents = [NSArray arrayWithObject:@"bedazzledance@aol.com"];
+        if([MFMailComposeViewController canSendMail])
+        {
+            mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setSubject:emailTitle];
+            [mc setMessageBody:messageBody isHTML:NO];
+            [mc setToRecipients:toRecipents];
+            
+            // Present mail view controller on screen
+            FlipSquaresNavigationController *nav =(FlipSquaresNavigationController*)self.view.window.rootViewController;
+            [nav presentViewController:mc animated:YES completion:NULL];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Email Account"
+                                                            message:@"You must set up an email account for your device before you can send mail."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    }
+}
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    
+    [mc dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 - (void)removeButtomView
 {

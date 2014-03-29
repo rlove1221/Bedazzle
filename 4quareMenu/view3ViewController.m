@@ -9,6 +9,7 @@
 #import "view3ViewController.h"
 #import "APLCollectionViewController.h"
 #import "PictureViewController.h"
+#import "FlipSquaresNavigationController.h"
 @interface view3ViewController ()
 
 
@@ -25,9 +26,10 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PictureViewController *vc = [[PictureViewController alloc] initWithNibName:@"PictureViewController" bundle:nil];
+    NSLog(@"%i",indexPath.row);
     vc.imageName = [self.imageArray objectAtIndex:indexPath.row-1];
-    [self.view.window.rootViewController presentViewController:vc animated:YES completion:nil];
-
+    FlipSquaresNavigationController *nav =(FlipSquaresNavigationController*)self.view.window.rootViewController;
+    [nav pushViewController:vc animated:YES];
 }
 
 

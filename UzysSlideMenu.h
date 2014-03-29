@@ -17,7 +17,9 @@ typedef enum _UzysSMState {
 } UzysSMState;
 
 @interface UzysSlideMenu : UIView <UzysSMMenuItemViewActionDelegate>
-
+{
+    UzysSMMenuItemView *selectedItem;
+}
 @property (nonatomic,strong) NSArray *pItems;
 @property (nonatomic,strong) UITextView *textView;
 @property (nonatomic,readonly) UzysSMState menuState;

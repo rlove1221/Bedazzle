@@ -7,7 +7,7 @@
 //
 
 #import "PictureViewController.h"
-
+#import "FlipSquaresNavigationController.h"
 @interface PictureViewController ()
 
 @end
@@ -38,7 +38,7 @@
 }
 
 - (IBAction)back_click:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView

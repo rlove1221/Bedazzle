@@ -277,7 +277,7 @@
 - (UIView *)mTableView:(TQMultistageTableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView * control = [[UIView alloc] init];
-    control.backgroundColor = [UIColor colorWithRed:255/255.0f green:75/255.0f blue:142/255.0f alpha:1.0];//label pink
+    control.backgroundColor = [UIColor colorWithRed:233/255.0f green:82/255.0f blue:136/255.0f alpha:.6];//label pink
     //[control setBackgroundColor:[UIColor colorWithRed:(100/255) green:(5/255) blue:(8/255) alpha:1.0]];
     
     //sepertor
@@ -336,4 +336,7 @@
 //}
 
 
+- (IBAction)schedule_Click:(id)sender {
+    [self.mTableView reloadData];
+}
 @end

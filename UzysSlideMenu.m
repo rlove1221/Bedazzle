@@ -224,6 +224,11 @@
 }
 -(void)showFullMenu:(BOOL)animation
 {
+    if (selectedItem) {
+        [self.itemViews removeObject:selectedItem];
+        [self.itemViews insertObject:selectedItem atIndex:selectedItem.tag];
+    }
+    
     self.textView.text = @"";
     if(animation)
     {
@@ -278,6 +283,7 @@
 #pragma mark - Delegate
 - (void)UzysSMMenuItemDidAction:(UzysSMMenuItemView *)itemView
 {
+    selectedItem = itemView;
     [self.itemViews removeObject:itemView];
     [self.itemViews insertObject:itemView atIndex:0];
     [self toggleMenu];

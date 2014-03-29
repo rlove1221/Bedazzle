@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <math.h>
+#import "FUIAlertView.h"
+#import "UIPopoverController+FlatUI.h"
+#import "FUIButton.h"
+#import "UIFont+FlatUI.h"
+#import "UIColor+FlatUI.h"
+#import <MessageUI/MessageUI.h>
 
 #define RECTPRINTSTR @" Rect(X:%.2f Y:%.2f Width:%.2f height:%.2f) "
 #define RECTSTRUCT(rect) rect.origin.x,rect.origin.y,rect.size.width,rect.size.height
@@ -35,8 +41,9 @@
 #define BUTTON_IMAGE_OF_BOTTOMLEFT_H  @"bottomLeft_h.png"
 #define BUTTON_IMAGE_OF_BOTTOMRIGHT_H @"bottomRight_h.png"
 
-@interface Quare4MenuViewController : UIViewController{
+@interface Quare4MenuViewController : UIViewController<FUIAlertViewDelegate,UIActionSheetDelegate,MFMailComposeViewControllerDelegate>{
     CGRect bottomleftCollectrect;
+    MFMailComposeViewController *mc;
 //    CGFloat rotation;
 }
 - (IBAction)actionmenu_click:(id)sender;

@@ -34,7 +34,7 @@
                             </accessibility>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.8765559196472168" green="0.22313281893730164" blue="0.47796949744224548" alpha="1" colorSpace="calibratedRGB"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                     </accessibility>

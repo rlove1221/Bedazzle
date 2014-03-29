@@ -97,6 +97,9 @@
 #import <UIKit/UIKit.h>
 
 @interface APLCollectionViewController : UICollectionViewController
+{
+    NSMutableDictionary *imageData;
+}
 @property (nonatomic,retain)NSArray* imageArray;
 
 -(UICollectionViewController*)nextViewControllerAtPoint:(CGPoint)p;

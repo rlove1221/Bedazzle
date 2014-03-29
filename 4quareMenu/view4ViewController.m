@@ -26,11 +26,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [ServiceManager getMessage];
+    
+    [self getMessage];
+    [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(getMessage) userInfo:nil repeats:YES];
     messageArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"Messages"];
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)getMessage
+{
+    [ServiceManager getMessage];
+    NSMutableArray *newArray = [[[NSUserDefaults standardUserDefaults] objectForKey:@"Messages"] mutableCopy];
+    [newArray removeObjectsInArray:messageArray];
+    
+    if ([newArray count] > 0) {
+        messageArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"Messages"];
+        [self.messageTableView reloadData];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -58,7 +71,13 @@
     }
     NSDictionary *messageDict = [messageArray objectAtIndex:indexPath.row];
     cell.messageLB.text = [messageDict objectForKey:@"message"];
-    cell.createdOnLB.text = [messageDict objectForKey:@"created_on"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"y-MM-dd HH:mm:ss z"];
+    NSString *newDateSring = [NSString stringWithFormat:@"%@ GMT-7",[messageDict objectForKey:@"created_on"]];
+    NSDate *date = [formatter dateFromString:newDateSring];
+    [formatter setDateFormat:@"MM-dd-y hh:mm a"];
+    cell.createdOnLB.text = [formatter stringFromDate:date
+                             ];
     
     return cell;
 }

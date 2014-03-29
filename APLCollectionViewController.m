@@ -96,7 +96,8 @@
 
 #import "APLCollectionViewController.h"
 #import "Util.h"
-#define MAX_COUNT 60
+#define MAX_COUNT 100
+
 #define CELL_ID @"CELL_ID"
 
 @implementation APLCollectionViewController
@@ -108,11 +109,11 @@
 {
     if (self = [super initWithCollectionViewLayout:layout])
     {
-        imageArray = [[NSArray alloc] initWithObjects:@"00001_3271343.jpg",@"00002_3271358.jpg",@"00003_3271404.jpg",@"00004_3271411.jpg",@"00005_3271501.jpg",@"00006_3271538.jpg",@"00007_3271595.jpg",@"00008_3271606.jpg",@"00009_3271626.jpg",@"00010_3271649.jpg",@"00011_3271655.jpg",@"00012_3271717.jpg",@"00013_3271752.jpg",@"00014_3271792.jpg",@"00015_3271845.jpg",@"00016_3271869.jpg",@"00017_3271909.jpg",@"00018_3271775.jpg",@"00019_3271849.jpg",@"00020_3272101.jpg",@"00021_3272162.jpg",@"00022_3272267.jpg",@"00023_3272314.jpg",@"00024_3272334.jpg",@"00025_3272351.jpg",@"00026_3272402.jpg",@"00027_3272417.jpg",@"00028_3272472.jpg",@"00029_3272504.jpg",@"00030_3272518.jpg",@"00031_3272535.jpg",@"00032_3272551.jpg",@"00033_3272569.jpg",@"00034_3272647.jpg",@"00035_3272686.jpg",@"00036_3272690.jpg",@"00037_3272725.jpg",@"00038_3272730.jpg",@"00039_3272767.jpg",@"00040_3272783.jpg",@"00041_3272809.jpg",@"00042_3272824.jpg",@"00043_3272867.jpg",@"00043_3272867.jpg",@"Arechino (sibs)__3271568.jpg",@"Arechino (sibs)__3271571.jpg",@"Belmatch__3271584.jpg",@"Bianco__3272212.jpg",@"Derleth__3271629.jpg",@"Derleth__3271743.jpg",@"Lo Presti__3271316.jpg",@"Solnsteva__3271462.jpg", nil];
+        imageArray = [[NSArray alloc] initWithObjects:@"00001_3271343.jpg",@"00002_3271358.jpg",@"00003_3271404.jpg",@"00004_3271411.jpg",@"00005_3271501.jpg",@"00006_3271538.jpg",@"00007_3271595.jpg",@"00008_3271606.jpg",@"00009_3271626.jpg",@"00010_3271649.jpg",@"00011_3271655.jpg",@"00012_3271717.jpg",@"00013_3271752.jpg",@"00014_3271792.jpg",@"00015_3271845.jpg",@"00016_3271869.jpg",@"00017_3271909.jpg",@"00018_3271775.jpg",@"00019_3271849.jpg",@"00020_3272101.jpg",@"00021_3272162.jpg",@"00022_3272267.jpg",@"00023_3272314.jpg",@"00024_3272334.jpg",@"00025_3272351.jpg",@"00026_3272402.jpg",@"00027_3272417.jpg",@"00028_3272472.jpg",@"00029_3272504.jpg",@"00030_3272518.jpg",@"00031_3272535.jpg",@"00032_3272551.jpg",@"00033_3272569.jpg",@"00034_3272647.jpg",@"00035_3272686.jpg",@"00036_3272690.jpg",@"00037_3272725.jpg",@"00038_3272730.jpg",@"00039_3272767.jpg",@"00040_3272783.jpg",@"00041_3272809.jpg", @"00042_3272824.jpg",@"00043_3272867.jpg",  @"Arechino (sibs)__3271568.jpg",@"Arechino (sibs)__3271571.jpg",@"Belmatch__3271584.jpg",@"Bianco__3272212.jpg",@"Derleth1.jpg",@"Lo Presti__3271316.jpg",@"Solnsteva__3271462.jpg",@"belmatch__3272181.jpg",@"",@"",@"",nil];
         
         [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:CELL_ID];
     }
-
+    imageData = [[NSMutableDictionary alloc] initWithCapacity:0];
  //self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"eventsBckgrd@2x.png"]];
 
    
@@ -124,16 +125,25 @@
 //self.collectionView.backgroundView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 640,640)];
  //   self.collectionView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"eventsBckgrd.png"]];
 
-  //  UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(0,100,0,640)];
- //   [imageView setImage:[UIImage imageNamed:@"eventsBckgrd.png"]];
+   UIImageView *imageView1 =[[UIImageView alloc]initWithFrame:CGRectMake(126,12,68,68)];
+[imageView1 setImage:[UIImage imageNamed:@"bedazzleStar.png"]];
+    [imageView addSubview:imageView1];
     
-  
-
+    UILabel  * label = [[UILabel alloc] initWithFrame:CGRectMake(8, 21, 50, 30)];
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor=[UIColor whiteColor];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:(22.0f)];
+    label.numberOfLines=0;
+    label.text = @"2013";
+    [imageView1 addSubview:label];
+    
+    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    myButton.backgroundColor = [UIColor clearColor];
+    myButton.frame = CGRectMake(0, 0, self.view.frame.size.width, 90); // position in the parent view and set the size of the button
+    [myButton setTitle:@"" forState:UIControlStateNormal];
+    [self.collectionView addSubview:myButton];
   // self.collectionView.backgroundView = imageView;
    // self.collectionView.backgroundView = UIViewContentModeScaleToFill;
-    
-
-  
 
     
     return self;
@@ -145,11 +155,34 @@
     
     UICollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     //UIColor* cellColor = [UIColor colorWithHue:drand48() saturation:1.0 brightness:1.0 alpha:1.0];
-    UIImage *image = [UIImage imageNamed:[imageArray objectAtIndex:indexPath.row]];
-    image = [Util imageWithImage:image scaledToSize:CGSizeMake(100, 100)];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake(0, 100, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
-    [cell.contentView addSubview:imageView];
+    UIImage *image =[imageData objectForKey:[imageArray objectAtIndex:indexPath.row]];
+    if (image==nil) {
+        image = [UIImage imageNamed:[imageArray objectAtIndex:indexPath.row]];
+        image = [Util imageWithImage:image scaledToSize:CGSizeMake(50, 50)];
+        [imageData setObject:image forKey:[imageArray objectAtIndex:indexPath.row]];
+    }
+    else
+    {
+        NSLog(@"image");
+    }
+    
+    UIImageView *imageView = (UIImageView*)[cell viewWithTag:1];
+    if (!imageView) {
+        imageView = [[UIImageView alloc] initWithImage:image];
+        imageView.tag=1;
+        imageView.frame = CGRectMake(0, 100, cell.contentView.frame.size.width, cell.contentView.frame.size.height);
+        [cell.contentView addSubview:imageView];
+    }
+    else
+    {
+        imageView.image = image;
+    }
+    if ([[imageArray objectAtIndex:indexPath.row] isEqualToString:@""]) {
+        imageView.image = nil;
+    }
+    
+    
+    
     //cell.contentView.backgroundColor = cellColor;
     
 
